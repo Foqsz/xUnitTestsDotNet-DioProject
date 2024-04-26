@@ -31,7 +31,7 @@ namespace TestsNewTalents
         [Theory]
         [InlineData(6, 2, 3)]
         [InlineData(5, 5, 1)]
-        public void TesteDividr(int val1, int val2, int resultado)
+        public void TesteDividir(int val1, int val2, int resultado)
         {
             Calculadora calc = new Calculadora();
 
@@ -57,7 +57,23 @@ namespace TestsNewTalents
         {
             Calculadora calc = new Calculadora();
 
-            Assert.Throws<DivideByZeroException>(() => calc.dividir(3, 0));
+            Assert.Throws<DivideByZeroException>(() => calc.dividir(3, 0)); // tratar exceçõs
+        }
+
+        [Fact]
+        public void TestarHistorico()
+        {
+            Calculadora calc = new Calculadora();
+
+            calc.somar(1, 2);
+            calc.somar(2, 8);
+            calc.somar(3, 7);
+            calc.somar(4, 1);
+
+            var lista = calc.historico();
+
+            Assert.NotEmpty(calc.historico());
+            Assert.Equal(3, lista.Count);
         }
     }
 }
