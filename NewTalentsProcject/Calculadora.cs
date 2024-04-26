@@ -15,7 +15,7 @@ namespace NewTalentsProcject
 
         public int subtrair(int val1, int val2)
         {
-            return 0;
+            return -1;
         }
 
         public int multiplicar(int val1, int val2)
